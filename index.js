@@ -75,8 +75,9 @@ client.login(DISCORD_TOKEN);
 
 require("http")
   .createServer((req, res) => {
+    console.log(`📶 Ping reçu de ${req.headers["user-agent"] || "inconnu"} à ${new Date().toISOString()}`);
     res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Eden Role bot is awake 🌅");
+    res.end("✅ Eden Role bot is alive");
   })
   .listen(8000, () => {
     console.log("🌐 Serveur HTTP actif sur le port 8000");
