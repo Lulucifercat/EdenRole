@@ -25,12 +25,10 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
       await axios.post(
         `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}`,
         {
-          fields: {
-            "Discord ID": discordId,
             fields: {
-  "Discord ID": discordId,
-  "Username": `${newMember.user.username}#${newMember.user.discriminator}`,
-  "Date ajout": new Date().toISOString(),
+              "Discord ID": discordId,
+              "Username": `${newMember.user.username}#${newMember.user.discriminator}`,
+              "Date ajout": new Date().toISOString()
 }
 
             "Date ajout": new Date().toISOString(),
