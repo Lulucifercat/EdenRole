@@ -14,7 +14,8 @@ const {
   AIRTABLE_BASE_ID,
 } = process.env;
 
-const AIRTABLE_TABLE = "Acces";
+const AIRTABLE_TABLE = "tblEf6uL5QW9FEmUe";
+";
 
 client.on("guildMemberUpdate", async (oldMember, newMember) => {
   try {
