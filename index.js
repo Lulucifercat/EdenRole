@@ -23,25 +23,22 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
 
     if (hasAdminRole) {
       await axios.post(
-        `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}`,
-        {
-            fields: {
-              "Discord ID": discordId,
-              "Username": `${newMember.user.username}#${newMember.user.discriminator}`,
-              "Date ajout": new Date().toISOString()
-}
-
-            "Date ajout": new Date().toISOString(),
-          },
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${AIRTABLE_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      console.log(`[+] Ajouté dans Airtable : ${discordId}`);
+  `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}`,
+  {
+    fields: {
+      "Discord ID": discordId,
+      "Username": `${newMember.user.username}#${newMember.user.discriminator}`,
+      "Date ajout": new Date().toISOString()
+    }
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${AIRTABLE_API_KEY}`,
+      "Content-Type": "application/json"
+    }
+  }
+);
+          console.log(`[+] Ajouté dans Airtable : ${discordId}`);
     } else {
       const res = await axios.get(
         `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}?filterByFormula={Discord ID}='${discordId}'`,
