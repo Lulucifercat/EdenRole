@@ -27,6 +27,12 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
         {
           fields: {
             "Discord ID": discordId,
+            fields: {
+  "Discord ID": discordId,
+  "Username": `${newMember.user.username}#${newMember.user.discriminator}`,
+  "Date ajout": new Date().toISOString(),
+}
+
             "Date ajout": new Date().toISOString(),
           },
         },
