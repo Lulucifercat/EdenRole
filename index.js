@@ -71,3 +71,5 @@ client.once("ready", () => {
 });
 
 client.login(DISCORD_TOKEN);
+require("http").createServer(() => {}).listen(process.env.PORT || 8080);
+
