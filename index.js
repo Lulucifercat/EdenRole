@@ -72,5 +72,14 @@ client.once("ready", () => {
 });
 
 client.login(DISCORD_TOKEN);
-require("http").createServer(() => {}).listen(process.env.PORT || 8080);
+
+require("http")
+  .createServer((req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Eden Role bot is awake 🌅");
+  })
+  .listen(8000, () => {
+    console.log("🌐 Serveur HTTP actif sur le port 8000");
+  });
+
 
