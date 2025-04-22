@@ -3,14 +3,14 @@
 **Eden Role** est un bot Discord Node.js pour le serveur **EDEN RP**. Il permet de synchroniser automatiquement les membres ayant un rôle précis (comme "Admin") avec une base de données **Airtable**, pour un meilleur suivi et contrôle des accès.
 
 
-## 🔧 Fonctionnalités
+## Fonctionnalités
 - Surveille les changements de rôle via `guildMemberUpdate`
 - Ajoute automatiquement le membre dans une base Airtable s’il reçoit le rôle admin
 - Supprime automatiquement le membre dès qu’il perd le rôle admin
 - Journalise les actions en console (ajout / suppression)
 
 
-## ✉️ Configuration .env (via interface Render / Koyeb / Railway)
+## Configuration .env (via interface Render / Koyeb / Railway)
 ```env
 DISCORD_TOKEN=xxxxxxxxxxxxxxxxxxxxx
 ADMIN_ROLE_ID=123456789012345678
@@ -23,14 +23,14 @@ AIRTABLE_BASE_ID=appXXXXXXXXXXXXXX
 > - `Date ajout` (champ date)
 
 
-## ⚡ Technologies
+## Technologies
 - Node.js 18+
 - discord.js v14
 - axios
 - dotenv
 
 
-## 📄 Exemple de structure du projet
+## Exemple de structure du projet
 ```
 eden-role-bot/
 ├── index.js
@@ -40,7 +40,7 @@ eden-role-bot/
 ```
 
 
-## ✨ Exemple de `package.json`
+## Exemple de `package.json`
 ```json
 {
   "name": "eden-role-bot",
@@ -61,12 +61,12 @@ eden-role-bot/
 ```
 
 
-## 🚀 Déploiement
+## Déploiement
 
 Eden Role peut être déployé sur :
-- 🔧 [Koyeb](https://app.koyeb.com) — via GitHub + secrets
-- 🚄 [Railway](https://railway.app) — projet Node.js connecté à ton repo
-- 🧪 [Replit](https://replit.com) + UptimeRobot — pour dev/test
+-  [Koyeb](https://app.koyeb.com) — via GitHub + secrets
+-  [Railway](https://railway.app) — projet Node.js connecté à ton repo
+-  [Replit](https://replit.com) + UptimeRobot — pour dev/test
 
 
 ## ⚠️ Bonnes pratiques
@@ -75,4 +75,4 @@ Eden Role peut être déployé sur :
 - Ajoute des logs dans un canal Discord si besoin (ajout possible dans `index.js`)
 
 
-🌟 Eden Role est conçu pour assurer une gestion fluide, sûre et automatisée de ton staff ou de tout rôle critique dans un serveur RP immersif.
+Eden Role est conçu pour assurer une gestion fluide, sûre et automatisée de ton staff ou de tout rôle critique dans un serveur RP immersif.
