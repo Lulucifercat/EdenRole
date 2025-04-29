@@ -1,13 +1,14 @@
 # Eden Role — Bot Discord de synchronisation avec Airtable
 
-**Eden Role** est un bot Discord Node.js pour le serveur **EDEN RP**. Il permet de synchroniser automatiquement les membres ayant un rôle précis (comme "Admin") avec une base de données **Airtable**, pour un meilleur suivi et contrôle des accès.
-
+**EdenRole** est un bot Discord conçu pour automatiser l'accès à une base Airtable, en fonction des rôles Discord.  Quand un utilisateur obtient le rôle **Admin**, il est ajouté dans la base. Quand il perd ce rôle, son accès est retiré.
 
 ## Fonctionnalités
-- Surveille les changements de rôle via `guildMemberUpdate`
-- Ajoute automatiquement le membre dans une base Airtable s’il reçoit le rôle admin
-- Supprime automatiquement le membre dès qu’il perd le rôle admin
-- Journalise les actions en console (ajout / suppression)
+-  **Ajout automatique** dans Airtable si un membre reçoit le rôle "Admin"
+-  **Suppression automatique** de la base s'il perd le rôle
+-  Journalisation claire dans la console
+-  Message automatique toutes les 30 minutes : `Eden Role est toujours actif`
+-  Serveur HTTP intégré compatible avec Fly.io / UptimeRobot
+-  Possibilité d'ajouter une interface web ou Make pour la vérification d'accès
 
 
 ## Configuration .env (via interface Render / Koyeb / Railway)
@@ -67,6 +68,7 @@ Eden Role peut être déployé sur :
 -  [Koyeb](https://app.koyeb.com) — via GitHub + secrets
 -  [Railway](https://railway.app) — projet Node.js connecté à ton repo
 -  [Replit](https://replit.com) + UptimeRobot — pour dev/test
+-  [Fly.io](https://fly.io)
 
 
 ## ⚠️ Bonnes pratiques
@@ -76,3 +78,23 @@ Eden Role peut être déployé sur :
 
 
 Eden Role est conçu pour assurer une gestion fluide, sûre et automatisée de ton staff ou de tout rôle critique dans un serveur RP immersif.
+
+## 🧪 Optionnel : Vérification d'accès externe
+Tu peux connecter EdenRole à un **scénario Make** ou une **page HTML** :
+
+- L'utilisateur entre son ID Discord
+- Le scénario vérifie dans Airtable s'il a encore accès
+- Redirection ou refus automatique
+
+
+## 🔎 Exemple de log automatique toutes les 30 minutes
+```
+🟢 Eden Role est toujours actif — 29/04/2025 à 23:30:00
+```
+
+## 👨‍💻 Développé pour le serveur RP : **EDEN RP**
+Créé pour automatiser les accès aux outils de gestion du serveur (fiches, BG, problèmes, etc).
+
+
+## 📝 Licence
+Projet libre sous licence MIT. Tu peux l’utiliser, le modifier et le redistribuer à ta sauce.
