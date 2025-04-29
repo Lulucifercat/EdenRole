@@ -97,3 +97,10 @@ require("http")
     console.log(`🌐 Serveur HTTP actif sur le port ${PORT}`);
   });
 
+// Log toutes les 30 minutes pour monitoring
+setInterval(() => {
+  const now = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
+  console.log(`🟢 Eden Role est toujours actif — ${now}`);
+}, 30 * 60 * 1000); // 30 minutes
+
+
