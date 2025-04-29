@@ -1,4 +1,3 @@
-// index.js
 const { Client, GatewayIntentBits } = require("discord.js");
 const axios = require("axios");
 require("dotenv").config();
@@ -22,23 +21,36 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
     const discordId = newMember.id;
 
     if (hasAdminRole) {
-      await axios.post(
-  `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}`,
-  {
-    fields: {
-      "Discord ID": discordId,
-      "Username": `${newMember.user.username}`,
-      "Date ajout": new Date().toISOString()
-    }
-  },
-  {
-    headers: {
-      Authorization: `Bearer ${AIRTABLE_API_KEY}`,
-      "Content-Type": "application/json"
-    }
-  }
-);
-          console.log(`[+] Ajouté dans Airtable : ${discordId}`);
+      const existing = await axios.get(
+        `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}?filterByFormula={Discord ID}='${discordId}'`,
+        {
+          headers: {
+            Authorization: `Bearer ${AIRTABLE_API_KEY}`,
+          },
+        }
+      );
+
+      if (existing.data.records.length === 0) {
+        await axios.post(
+          `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}`,
+          {
+            fields: {
+              "Discord ID": discordId,
+              "Username": `${newMember.user.username}`,
+              "Date ajout": new Date().toISOString(),
+            },
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${AIRTABLE_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(`[+] Ajouté dans Airtable : ${discordId}`);
+      } else {
+        console.log(`[=] Déjà présent dans Airtable : ${discordId}`);
+      }
     } else {
       const res = await axios.get(
         `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE}?filterByFormula={Discord ID}='${discordId}'`,
@@ -63,7 +75,7 @@ client.on("guildMemberUpdate", async (oldMember, newMember) => {
       }
     }
   } catch (err) {
-    console.error("❌ Erreur :", err.message);
+    console.error("❌ Erreur :", err.response?.data || err.message);
   }
 });
 
@@ -75,12 +87,13 @@ client.login(DISCORD_TOKEN);
 
 require("http")
   .createServer((req, res) => {
-    console.log(`📶 Ping reçu de ${req.headers["user-agent"] || "inconnu"} à ${new Date().toISOString()}`);
+    console.log(
+      `📶 Ping reçu de ${req.headers["user-agent"] || "inconnu"} à ${new Date().toISOString()}`
+    );
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("✅ Eden Role bot is alive");
   })
   .listen(8000, () => {
     console.log("🌐 Serveur HTTP actif sur le port 8000");
   });
-
 
