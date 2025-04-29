@@ -2,6 +2,7 @@
 
 **EdenRole** est un bot Discord conçu pour automatiser l'accès à une base Airtable, en fonction des rôles Discord.  Quand un utilisateur obtient le rôle **Admin**, il est ajouté dans la base. Quand il perd ce rôle, son accès est retiré.
 
+---
 
 ## Fonctionnalités
 -  **Ajout automatique** dans Airtable si un membre reçoit le rôle "Admin"
@@ -11,7 +12,7 @@
 -  Serveur HTTP intégré compatible avec Fly.io / UptimeRobot
 -  Possibilité d'ajouter une interface web ou Make pour la vérification d'accès
 
-
+---
 
 ## Configuration .env (via interface Render / Koyeb / Railway)
 ```env
@@ -25,7 +26,7 @@ AIRTABLE_BASE_ID=appXXXXXXXXXXXXXX
 > - `Discord ID` (champ texte)
 > - `Date ajout` (champ date)
 
-
+---
 
 ## Technologies
 - Node.js 18+
@@ -33,7 +34,7 @@ AIRTABLE_BASE_ID=appXXXXXXXXXXXXXX
 - axios
 - dotenv
 
-
+---
 
 ## Exemple de structure du projet
 ```
@@ -44,7 +45,7 @@ eden-role-bot/
 └── README.md
 ```
 
-
+---
 
 ## Exemple de `package.json`
 ```json
@@ -66,7 +67,7 @@ eden-role-bot/
 }
 ```
 
-
+---
 
 ## Déploiement
 
@@ -76,37 +77,35 @@ Eden Role peut être déployé sur :
 -  [Replit](https://replit.com) + UptimeRobot — pour dev/test
 -  [Fly.io](https://fly.io)
 
+---
 
-
-## ⚠️ Bonnes pratiques
+## Bonnes pratiques
 - **Ne mets jamais** tes tokens dans un `.env` pushé sur GitHub
 - Utilise `.gitignore` pour ignorer les fichiers sensibles
 - Ajoute des logs dans un canal Discord si besoin (ajout possible dans `index.js`)
 
+---
 
-Eden Role est conçu pour assurer une gestion fluide, sûre et automatisée de ton staff ou de tout rôle critique dans un serveur RP immersif.
-
-
-
-## 🧪 Optionnel : Vérification d'accès externe
+## Optionnel : Vérification d'accès externe
 Tu peux connecter EdenRole à un **scénario Make** ou une **page HTML** :
 
 - L'utilisateur entre son ID Discord
 - Le scénario vérifie dans Airtable s'il a encore accès
 - Redirection ou refus automatique
 
+---
 
-
-## 🔎 Exemple de log automatique toutes les 30 minutes
+## Exemple de log automatique toutes les 30 minutes
 ```
 🟢 Eden Role est toujours actif — 29/04/2025 à 23:30:00
 ```
 
+---
 
-## 👨‍💻 Développé pour le serveur RP : **EDEN RP**
-Créé pour automatiser les accès aux outils de gestion du serveur (fiches, BG, problèmes, etc).
+## Développé pour le serveur RP : **EDEN RP**
+Créé pour automatiser les accès aux outils de gestion du serveur (fiches, BG, problèmes, etc). Eden Role est conçu pour assurer une gestion fluide, sûre et automatisée de ton staff ou de tout rôle critique dans un serveur RP immersif.
 
+---
 
-
-## 📝 Licence
+## Licence
 Projet libre sous licence MIT. Tu peux l’utiliser, le modifier et le redistribuer à ta sauce.
