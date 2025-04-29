@@ -93,7 +93,7 @@ require("http")
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("✅ Eden Role bot is alive");
   })
-  .listen(PORT, () => {
+  .listen(PORT, "0.0.0.0", () => { // ⬅️ écoute sur toutes les interfaces (obligatoire sur Fly.io)
     console.log(`🌐 Serveur HTTP actif sur le port ${PORT}`);
   });
 
@@ -101,6 +101,7 @@ require("http")
 setInterval(() => {
   const now = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
   console.log(`🟢 Eden Role est toujours actif — ${now}`);
-}, 30 * 60 * 1000); // 30 minutes
+}, 30 * 60 * 1000);
+
 
 
