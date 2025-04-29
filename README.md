@@ -2,6 +2,7 @@
 
 **EdenRole** est un bot Discord conçu pour automatiser l'accès à une base Airtable, en fonction des rôles Discord.  Quand un utilisateur obtient le rôle **Admin**, il est ajouté dans la base. Quand il perd ce rôle, son accès est retiré.
 
+
 ## Fonctionnalités
 -  **Ajout automatique** dans Airtable si un membre reçoit le rôle "Admin"
 -  **Suppression automatique** de la base s'il perd le rôle
@@ -9,6 +10,7 @@
 -  Message automatique toutes les 30 minutes : `Eden Role est toujours actif`
 -  Serveur HTTP intégré compatible avec Fly.io / UptimeRobot
 -  Possibilité d'ajouter une interface web ou Make pour la vérification d'accès
+
 
 
 ## Configuration .env (via interface Render / Koyeb / Railway)
@@ -24,11 +26,13 @@ AIRTABLE_BASE_ID=appXXXXXXXXXXXXXX
 > - `Date ajout` (champ date)
 
 
+
 ## Technologies
 - Node.js 18+
 - discord.js v14
 - axios
 - dotenv
+
 
 
 ## Exemple de structure du projet
@@ -39,6 +43,7 @@ eden-role-bot/
 ├── .gitignore
 └── README.md
 ```
+
 
 
 ## Exemple de `package.json`
@@ -62,6 +67,7 @@ eden-role-bot/
 ```
 
 
+
 ## Déploiement
 
 Eden Role peut être déployé sur :
@@ -69,6 +75,7 @@ Eden Role peut être déployé sur :
 -  [Railway](https://railway.app) — projet Node.js connecté à ton repo
 -  [Replit](https://replit.com) + UptimeRobot — pour dev/test
 -  [Fly.io](https://fly.io)
+
 
 
 ## ⚠️ Bonnes pratiques
@@ -79,6 +86,8 @@ Eden Role peut être déployé sur :
 
 Eden Role est conçu pour assurer une gestion fluide, sûre et automatisée de ton staff ou de tout rôle critique dans un serveur RP immersif.
 
+
+
 ## 🧪 Optionnel : Vérification d'accès externe
 Tu peux connecter EdenRole à un **scénario Make** ou une **page HTML** :
 
@@ -87,13 +96,16 @@ Tu peux connecter EdenRole à un **scénario Make** ou une **page HTML** :
 - Redirection ou refus automatique
 
 
+
 ## 🔎 Exemple de log automatique toutes les 30 minutes
 ```
 🟢 Eden Role est toujours actif — 29/04/2025 à 23:30:00
 ```
 
+
 ## 👨‍💻 Développé pour le serveur RP : **EDEN RP**
 Créé pour automatiser les accès aux outils de gestion du serveur (fiches, BG, problèmes, etc).
+
 
 
 ## 📝 Licence
