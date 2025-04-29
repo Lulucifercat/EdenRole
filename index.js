@@ -85,15 +85,15 @@ client.once("ready", () => {
 
 client.login(DISCORD_TOKEN);
 
+const PORT = process.env.PORT || 8000;
+
 require("http")
   .createServer((req, res) => {
-    console.log(
-      `📶 Ping reçu de ${req.headers["user-agent"] || "inconnu"} à ${new Date().toISOString()}`
-    );
+    console.log(`📶 Ping reçu de ${req.headers["user-agent"] || "inconnu"} à ${new Date().toISOString()}`);
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("✅ Eden Role bot is alive");
   })
-  .listen(8000, () => {
-    console.log("🌐 Serveur HTTP actif sur le port 8000");
+  .listen(PORT, () => {
+    console.log(`🌐 Serveur HTTP actif sur le port ${PORT}`);
   });
 
